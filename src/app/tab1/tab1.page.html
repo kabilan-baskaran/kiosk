@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Volume Controller
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,19 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="large">Volume Controller</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-fab vertical="center" horizontal="center" slot="fixed" title="Beep">
+    <ion-fab-button color="danger" (click)="onBeepBtnClick()"> 
+      <ion-icon name="volume-high"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-item>
+    <ion-range [(ngModel)]="volumeLevel" min=0  [max]="maxVolume" pin="true" snaps="true" (ionChange)="changeVolume()" color="primary" debounce=300>
+      <ion-icon slot="start" size="small" name="volume-low" ></ion-icon>
+      <ion-icon slot="end" name="volume-high"></ion-icon>
+    </ion-range>
+  </ion-item>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
 </ion-content>
